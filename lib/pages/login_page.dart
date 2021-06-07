@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:my_learning_app/pages/home_page.dart';
 import 'package:my_learning_app/themes/themes.dart';
+import 'package:my_learning_app/widgets/content_modal.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final appBarHeight = mediaQuery.padding.top;
-    return Padding(
+
+    return MainLogin(appBarHeight: appBarHeight);
+    // return Content();
+  }
+}
+
+class MainLogin extends StatelessWidget {
+  const MainLogin({
+    Key? key,
+    required this.appBarHeight,
+  }) : super(key: key);
+
+  final double appBarHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,34 +102,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16),
-            InkWell(
-              borderRadius: BorderRadius.circular(40.0),
-              onTap: () {}, // needed
-              child: Ink(
-                width: 328,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 30,
-                ),
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  border: Border.all(
-                    color: primaryColor,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(40.0),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Login Into My Account',
-                      style: regularBlackText.copyWith(color: Colors.white),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            ButtonPrimary(),
             SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -125,8 +116,48 @@ class LoginPage extends StatelessWidget {
                   style: regularBlackText.copyWith(color: primaryColor),
                 ),
               ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ButtonPrimary extends StatelessWidget {
+  const ButtonPrimary({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(40.0),
+      onTap: () {}, // needed
+      child: Ink(
+        width: 328,
+        padding: const EdgeInsets.symmetric(
+          vertical: 12,
+          horizontal: 30,
+        ),
+        decoration: BoxDecoration(
+          color: primaryColor,
+          border: Border.all(
+            color: primaryColor,
+            width: 1.0,
+          ),
+          borderRadius: BorderRadius.circular(40.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Login Into My Account',
+              style: regularBlackText.copyWith(color: Colors.white),
             )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

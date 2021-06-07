@@ -10,33 +10,45 @@ class ContainerPage extends StatelessWidget {
     required this.maxWidth,
     required this.children,
     required this.isCarousel,
+    required this.isHeader,
   }) : super(key: key);
 
   final double maxWidth;
   final List<Widget> children;
   final bool isCarousel;
+  final bool isHeader;
 
   @override
   Widget build(BuildContext context) {
     var carouselHeader = isCarousel ? CarouselHeader() : SizedBox();
 
-    return Padding(
-      padding: const EdgeInsets.only(top: 30),
-      child: ListView(
-        children: [
-          HeaderProfile(),
-          SizedBox(height: 40),
-          carouselHeader,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ...children,
-              ],
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 30),
+        child: ListView(
+          children: [
+            isHeader
+                ? Column(
+                    children: [
+                      HeaderProfile(),
+                      SizedBox(height: 40),
+                    ],
+                  )
+                : SizedBox(),
+            carouselHeader,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ...children,
+                  ],
+                ),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

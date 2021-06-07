@@ -18,6 +18,7 @@ class HomeScreen extends StatelessWidget {
     return ContainerPage(
       maxWidth: maxWidth,
       isCarousel: true,
+      isHeader: true,
       children: [
         Row(
           children: [
