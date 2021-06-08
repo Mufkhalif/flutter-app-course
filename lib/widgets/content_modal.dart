@@ -43,7 +43,6 @@ class Content extends StatelessWidget {
             SizedBox(height: 14),
             GestureDetector(
               onTap: () {
-                // Navigator.of(context).pop(null);
                 Navigator.push(context, MaterialPageRoute(builder: (_) {
                   return DetailCoursePage();
                 }));

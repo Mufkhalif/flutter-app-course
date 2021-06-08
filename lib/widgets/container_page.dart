@@ -23,6 +23,7 @@ class ContainerPage extends StatelessWidget {
     var carouselHeader = isCarousel ? CarouselHeader() : SizedBox();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(top: 30),
         child: ListView(
@@ -73,8 +74,8 @@ class _CarouselHeaderState extends State<CarouselHeader> {
               height: 142.0,
               initialPage: 0,
               enableInfiniteScroll: true,
-              reverse: false,
-              autoPlay: false,
+              reverse: true,
+              autoPlay: true,
               autoPlayInterval: Duration(seconds: 3),
               autoPlayAnimationDuration: Duration(milliseconds: 800),
               autoPlayCurve: Curves.fastOutSlowIn,

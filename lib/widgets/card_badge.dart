@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_learning_app/pages/detail_course_page.dart';
 import 'package:my_learning_app/themes/themes.dart';
 
 import 'content_modal.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_learning_app/pages/akun_screen.dart';
 import 'package:my_learning_app/pages/explore_screen.dart';
 import 'package:my_learning_app/pages/home_screen.dart';
 import 'package:my_learning_app/pages/talenta_screen.dart';
@@ -77,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               _selectedIndex == 3
                   ? 'assets/images/ic_profile_active.svg'
                   : 'assets/images/ic_profile_unactive.svg',
-              'Profile'),
+              'Akun'),
         ],
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -113,6 +114,8 @@ class IndexPage extends StatelessWidget {
         ? HomeScreen(controller: _controller, maxWidth: maxWidth)
         : index == 1
             ? ExploreScreen(maxWidth: maxWidth)
-            : TalentaScreen(maxWidth: maxWidth);
+            : index == 2
+                ? TalentaScreen(maxWidth: maxWidth)
+                : AkunScreen();
   }
 }

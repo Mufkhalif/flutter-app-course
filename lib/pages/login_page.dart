@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_learning_app/pages/home_page.dart';
 import 'package:my_learning_app/themes/themes.dart';
-import 'package:my_learning_app/widgets/content_modal.dart';
 
 class LoginPage extends StatelessWidget {
   @override
